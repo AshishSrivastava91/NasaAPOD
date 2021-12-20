@@ -18,7 +18,3 @@
 4. Testing of code is painless
 > Clean code always looks like it was written by someone who cares. - by Michael Feathers”
 
-
-
-## - Current App's Architecture
-This app uses [***MVVM (Model View View-Model)***](https://developer.android.com/jetpack/docs/guide#recommended-app-arch) architecture.
