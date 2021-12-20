@@ -1,0 +1,79 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+  compileSdkVersion versions.compileSdk
+  buildToolsVersion versions.buildTools
+  defaultConfig {
+    applicationId names.applicationId
+    minSdkVersion versions.minSdk
+    targetSdkVersion versions.targetSdk
+    versionCode versions.versionCode
+    versionName versions.versionName
+    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+  }
+
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    }
+  }
+
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+
+  viewBinding {
+    enabled = true
+  }
+
+  kotlinOptions {
+    jvmTarget = "1.8"
+  }
+}
+
+dependencies {
+  implementation fileTree(dir: 'libs', include: ['*.jar'])
+  implementation "androidx.appcompat:appcompat:${library.appCompat}"
+  implementation "androidx.core:core-ktx:${library.ktx}"
+  implementation "androidx.constraintlayout:constraintlayout:${library.constarintLayout}"
+  implementation "com.google.android.material:material:${library.material}"
+  //Lifecycle
+  implementation "androidx.lifecycle:lifecycle-extensions:${library.lifeCycle}"
+  kapt "androidx.lifecycle:lifecycle-compiler:${library.lifeCycle}"
+  //Navigation
+  implementation "androidx.navigation:navigation-fragment-ktx:${library.navigation}"
+  implementation "androidx.navigation:navigation-ui-ktx:${library.navigation}"
+  //Gson
+  implementation "com.google.code.gson:gson:${library.gson}"
+  //Picasso
+  implementation "com.squareup.picasso:picasso:${library.picasso}"
+  //Dagger
+  implementation "com.google.dagger:dagger:${library.dagger}"
+  kapt "com.google.dagger:dagger-compiler:${library.dagger}"
+  //network
+  implementation "com.squareup.okhttp3:logging-interceptor:${library.logging_interceptor}"
+  implementation "com.squareup.retrofit2:retrofit:${library.retrofit}"
+  implementation "com.squareup.retrofit2:converter-gson:${library.retrofit}"
+  //Rx
+  implementation "io.reactivex.rxjava2:rxandroid:${library.rxAndroid}"
+  implementation "io.reactivex.rxjava2:rxjava:${library.rxJava}"
+  implementation 'com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0'
+  //PhotoView
+  implementation "com.github.chrisbanes:PhotoView:${library.photoView}"
+  //Exoplayer
+  implementation "com.google.android.exoplayer:exoplayer:${library.exoPlayer}"
+  //Youtube link-extractor
+  /*implementation ('com.github.Commit451:YouTubeExtractor:6.0.0') {
+    exclude group: "com.squareup.okhttp3"
+    exclude group: "io.reactivex.rxjava2"
+  }*/
+
+  testImplementation 'junit:junit:4.12'
+  androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+  androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}

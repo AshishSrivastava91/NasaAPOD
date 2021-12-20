@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/nasaAPODScreen">
+
+
+    <fragment
+        android:id="@+id/nasaAPODScreen"
+        android:name="com.goldman.nasa.ui.apod.NasaAPODScreen"
+        android:label="NasaAPODScreen"
+        tools:layout="@layout/screen_first">
+        <action
+            android:id="@+id/action_nasaAPODScreen_to_photoViewScreen"
+            app:destination="@id/photoViewScreen"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:launchSingleTop="true" />
+        <action
+            android:id="@+id/action_nasaAPODScreen_to_videoViewScreen"
+            app:destination="@id/videoViewScreen"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:launchSingleTop="true" />
+        <action
+            android:id="@+id/action_fav"
+            app:destination="@+id/FavouriteActivity"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:launchSingleTop="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/photoViewScreen"
+        android:name="com.goldman.nasa.ui.PhotoViewScreen"
+        android:label="PhotoViewScreen"
+        tools:layout="@layout/screen_photo_view"/>
+    <fragment
+        android:id="@+id/videoViewScreen"
+        android:name="com.goldman.nasa.ui.VideoViewScreen"
+        android:label="VideoViewScreen"
+        tools:layout="@layout/screen_video_view"/>
+    <activity
+        android:id="@+id/FavouriteActivity"
+        android:name="com.goldman.nasa.ui.apod.FavouritesActivity"
+        android:label="FavActivity"
+        tools:layout="@layout/activity_favourites">
+
+    </activity>
+
+</navigation>
